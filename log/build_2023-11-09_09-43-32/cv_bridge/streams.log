@@ -1,0 +1,94 @@
+[0.311s] Invoking command in '/home/shengbin/camera_ws/build/cv_bridge': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/shengbin/camera_ws/install/opencv_tests:/home/shengbin/camera_ws/install/camera_calibration:/home/shengbin/camera_ws/install/camera:/opt/ros/humble /usr/bin/cmake --build /home/shengbin/camera_ws/build/cv_bridge -- -j16 -l16
+[0.622s] -- Found ament_cmake_ros: 0.10.0 (/opt/ros/humble/share/ament_cmake_ros/cmake)
+[0.622s] -- Found Python3: /usr/bin/python3.10 (found version "3.10.12") found components: Interpreter 
+[0.909s] -- Found Python3: /usr/include/python3.10 (found version "3.10.12") found components: Development NumPy Interpreter Development.Module Development.Embed 
+[0.924s] -- Found rcpputils: 2.4.1 (/opt/ros/humble/share/rcpputils/cmake)
+[0.944s] -- Found sensor_msgs: 4.2.3 (/opt/ros/humble/share/sensor_msgs/cmake)
+[0.965s] -- Found rosidl_generator_c: 3.1.5 (/opt/ros/humble/share/rosidl_generator_c/cmake)
+[0.969s] -- Found rosidl_adapter: 3.1.5 (/opt/ros/humble/share/rosidl_adapter/cmake)
+[0.977s] -- Found rosidl_generator_cpp: 3.1.5 (/opt/ros/humble/share/rosidl_generator_cpp/cmake)
+[0.991s] -- Using all available rosidl_typesupport_c: rosidl_typesupport_fastrtps_c;rosidl_typesupport_introspection_c
+[1.003s] -- Using all available rosidl_typesupport_cpp: rosidl_typesupport_fastrtps_cpp;rosidl_typesupport_introspection_cpp
+[1.274s] -- Found ament_lint_auto: 0.12.8 (/opt/ros/humble/share/ament_lint_auto/cmake)
+[1.399s] -- Found gtest sources under '/opt/ros/humble/src/gtest_vendor': C++ tests using 'Google Test' will be built
+[4.054s] -- Configuring done
+[4.088s] -- Generating done
+[4.090s] -- Build files have been written to: /home/shengbin/camera_ws/build/cv_bridge
+[4.128s] [35m[1mConsolidate compiler generated dependencies of target gtest[0m
+[4.128s] [35m[1mConsolidate compiler generated dependencies of target gtest_main[0m
+[4.128s] [35m[1mConsolidate compiler generated dependencies of target cv_bridge[0m
+[4.138s] [  0%] Built target ament_cmake_python_copy_cv_bridge
+[4.147s] [  6%] [32mBuilding CXX object src/CMakeFiles/cv_bridge.dir/rgb_colors.cpp.o[0m
+[4.148s] [ 25%] Built target gtest
+[4.148s] [ 31%] Built target gtest_main
+[4.150s] [ 37%] [32mBuilding CXX object src/CMakeFiles/cv_bridge.dir/cv_bridge.cpp.o[0m
+[4.582s] running egg_info
+[4.583s] writing cv_bridge.egg-info/PKG-INFO
+[4.584s] writing dependency_links to cv_bridge.egg-info/dependency_links.txt
+[4.584s] writing top-level names to cv_bridge.egg-info/top_level.txt
+[4.587s] reading manifest file 'cv_bridge.egg-info/SOURCES.txt'
+[4.588s] writing manifest file 'cv_bridge.egg-info/SOURCES.txt'
+[4.628s] [ 37%] Built target ament_cmake_python_build_cv_bridge_egg
+[7.259s] [ 43%] [32m[1mLinking CXX shared library libcv_bridge.so[0m
+[7.368s] [ 43%] Built target cv_bridge
+[7.379s] [35m[1mConsolidate compiler generated dependencies of target cv_bridge-utest[0m
+[7.380s] [35m[1mConsolidate compiler generated dependencies of target cv_bridge_boost[0m
+[7.396s] [ 50%] [32mBuilding CXX object test/CMakeFiles/cv_bridge-utest.dir/test_rgb_colors.cpp.o[0m
+[7.398s] [ 56%] [32mBuilding CXX object src/CMakeFiles/cv_bridge_boost.dir/module_opencv3.cpp.o[0m
+[7.398s] [ 75%] [32mBuilding CXX object test/CMakeFiles/cv_bridge-utest.dir/test_endian.cpp.o[0m
+[7.399s] [ 75%] [32mBuilding CXX object test/CMakeFiles/cv_bridge-utest.dir/test_compression.cpp.o[0m
+[7.399s] [ 75%] [32mBuilding CXX object test/CMakeFiles/cv_bridge-utest.dir/utest.cpp.o[0m
+[7.399s] [ 81%] [32mBuilding CXX object test/CMakeFiles/cv_bridge-utest.dir/utest2.cpp.o[0m
+[7.403s] [ 87%] [32mBuilding CXX object src/CMakeFiles/cv_bridge_boost.dir/module.cpp.o[0m
+[9.281s] [ 93%] [32m[1mLinking CXX executable cv_bridge-utest[0m
+[9.602s] [ 93%] Built target cv_bridge-utest
+[10.232s] [100%] [32m[1mLinking CXX shared module boost/cv_bridge_boost.so[0m
+[10.321s] [100%] Built target cv_bridge_boost
+[10.330s] Invoked command in '/home/shengbin/camera_ws/build/cv_bridge' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/shengbin/camera_ws/install/opencv_tests:/home/shengbin/camera_ws/install/camera_calibration:/home/shengbin/camera_ws/install/camera:/opt/ros/humble /usr/bin/cmake --build /home/shengbin/camera_ws/build/cv_bridge -- -j16 -l16
+[10.352s] Invoking command in '/home/shengbin/camera_ws/build/cv_bridge': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/shengbin/camera_ws/install/opencv_tests:/home/shengbin/camera_ws/install/camera_calibration:/home/shengbin/camera_ws/install/camera:/opt/ros/humble /usr/bin/cmake --install /home/shengbin/camera_ws/build/cv_bridge
+[10.358s] -- Install configuration: ""
+[10.358s] -- Up-to-date: /home/shengbin/camera_ws/install/cv_bridge/share/cv_bridge/environment/pythonpath.sh
+[10.358s] -- Installing: /home/shengbin/camera_ws/install/cv_bridge/share/cv_bridge/environment/pythonpath.dsv
+[10.358s] -- Up-to-date: /home/shengbin/camera_ws/install/cv_bridge/local/lib/python3.10/dist-packages/cv_bridge-3.2.1-py3.10.egg-info
+[10.358s] -- Installing: /home/shengbin/camera_ws/install/cv_bridge/local/lib/python3.10/dist-packages/cv_bridge-3.2.1-py3.10.egg-info/dependency_links.txt
+[10.358s] -- Installing: /home/shengbin/camera_ws/install/cv_bridge/local/lib/python3.10/dist-packages/cv_bridge-3.2.1-py3.10.egg-info/SOURCES.txt
+[10.358s] -- Installing: /home/shengbin/camera_ws/install/cv_bridge/local/lib/python3.10/dist-packages/cv_bridge-3.2.1-py3.10.egg-info/PKG-INFO
+[10.358s] -- Installing: /home/shengbin/camera_ws/install/cv_bridge/local/lib/python3.10/dist-packages/cv_bridge-3.2.1-py3.10.egg-info/top_level.txt
+[10.359s] -- Up-to-date: /home/shengbin/camera_ws/install/cv_bridge/local/lib/python3.10/dist-packages/cv_bridge
+[10.359s] -- Installing: /home/shengbin/camera_ws/install/cv_bridge/local/lib/python3.10/dist-packages/cv_bridge/__init__.py
+[10.359s] -- Installing: /home/shengbin/camera_ws/install/cv_bridge/local/lib/python3.10/dist-packages/cv_bridge/core.py
+[10.384s] Listing '/home/shengbin/camera_ws/install/cv_bridge/local/lib/python3.10/dist-packages/cv_bridge'...
+[10.384s] Compiling '/home/shengbin/camera_ws/install/cv_bridge/local/lib/python3.10/dist-packages/cv_bridge/__init__.py'...
+[10.384s] Listing '/home/shengbin/camera_ws/install/cv_bridge/local/lib/python3.10/dist-packages/cv_bridge/boost'...
+[10.384s] Compiling '/home/shengbin/camera_ws/install/cv_bridge/local/lib/python3.10/dist-packages/cv_bridge/core.py'...
+[10.388s] -- Installing: /home/shengbin/camera_ws/install/cv_bridge/lib/libcv_bridge.so
+[10.389s] -- Set runtime path of "/home/shengbin/camera_ws/install/cv_bridge/lib/libcv_bridge.so" to ""
+[10.389s] -- Up-to-date: /home/shengbin/camera_ws/install/cv_bridge/include/cv_bridge/cv_bridge/cv_bridge_export.h
+[10.389s] -- Installing: /home/shengbin/camera_ws/install/cv_bridge/local/lib/python3.10/dist-packages/cv_bridge/boost/cv_bridge_boost.so
+[10.390s] -- Set runtime path of "/home/shengbin/camera_ws/install/cv_bridge/local/lib/python3.10/dist-packages/cv_bridge/boost/cv_bridge_boost.so" to ""
+[10.390s] -- Up-to-date: /home/shengbin/camera_ws/install/cv_bridge/include/cv_bridge
+[10.390s] -- Up-to-date: /home/shengbin/camera_ws/install/cv_bridge/include/cv_bridge/cv_bridge
+[10.391s] -- Installing: /home/shengbin/camera_ws/install/cv_bridge/include/cv_bridge/cv_bridge/cv_bridge.h
+[10.391s] -- Installing: /home/shengbin/camera_ws/install/cv_bridge/include/cv_bridge/cv_bridge/rgb_colors.h
+[10.391s] -- Up-to-date: /home/shengbin/camera_ws/install/cv_bridge/lib/libcv_bridge.so
+[10.391s] -- Up-to-date: /home/shengbin/camera_ws/install/cv_bridge/share/ament_index/resource_index/package_run_dependencies/cv_bridge
+[10.391s] -- Up-to-date: /home/shengbin/camera_ws/install/cv_bridge/share/ament_index/resource_index/parent_prefix_path/cv_bridge
+[10.391s] -- Up-to-date: /home/shengbin/camera_ws/install/cv_bridge/share/cv_bridge/environment/ament_prefix_path.sh
+[10.391s] -- Installing: /home/shengbin/camera_ws/install/cv_bridge/share/cv_bridge/environment/ament_prefix_path.dsv
+[10.391s] -- Up-to-date: /home/shengbin/camera_ws/install/cv_bridge/share/cv_bridge/environment/path.sh
+[10.391s] -- Installing: /home/shengbin/camera_ws/install/cv_bridge/share/cv_bridge/environment/path.dsv
+[10.391s] -- Up-to-date: /home/shengbin/camera_ws/install/cv_bridge/share/cv_bridge/local_setup.bash
+[10.391s] -- Up-to-date: /home/shengbin/camera_ws/install/cv_bridge/share/cv_bridge/local_setup.sh
+[10.391s] -- Up-to-date: /home/shengbin/camera_ws/install/cv_bridge/share/cv_bridge/local_setup.zsh
+[10.391s] -- Installing: /home/shengbin/camera_ws/install/cv_bridge/share/cv_bridge/local_setup.dsv
+[10.391s] -- Installing: /home/shengbin/camera_ws/install/cv_bridge/share/cv_bridge/package.dsv
+[10.391s] -- Up-to-date: /home/shengbin/camera_ws/install/cv_bridge/share/ament_index/resource_index/packages/cv_bridge
+[10.391s] -- Up-to-date: /home/shengbin/camera_ws/install/cv_bridge/share/cv_bridge/cmake/export_cv_bridgeExport.cmake
+[10.391s] -- Up-to-date: /home/shengbin/camera_ws/install/cv_bridge/share/cv_bridge/cmake/export_cv_bridgeExport-noconfig.cmake
+[10.391s] -- Up-to-date: /home/shengbin/camera_ws/install/cv_bridge/share/cv_bridge/cmake/cv_bridge-extras.cmake
+[10.391s] -- Up-to-date: /home/shengbin/camera_ws/install/cv_bridge/share/cv_bridge/cmake/ament_cmake_export_dependencies-extras.cmake
+[10.391s] -- Up-to-date: /home/shengbin/camera_ws/install/cv_bridge/share/cv_bridge/cmake/ament_cmake_export_targets-extras.cmake
+[10.391s] -- Up-to-date: /home/shengbin/camera_ws/install/cv_bridge/share/cv_bridge/cmake/cv_bridgeConfig.cmake
+[10.391s] -- Up-to-date: /home/shengbin/camera_ws/install/cv_bridge/share/cv_bridge/cmake/cv_bridgeConfig-version.cmake
+[10.391s] -- Installing: /home/shengbin/camera_ws/install/cv_bridge/share/cv_bridge/package.xml
+[10.394s] Invoked command in '/home/shengbin/camera_ws/build/cv_bridge' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/shengbin/camera_ws/install/opencv_tests:/home/shengbin/camera_ws/install/camera_calibration:/home/shengbin/camera_ws/install/camera:/opt/ros/humble /usr/bin/cmake --install /home/shengbin/camera_ws/build/cv_bridge

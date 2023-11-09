@@ -1,0 +1,104 @@
+[0.240s] Invoking command in '/home/shengbin/camera_ws/build/image_view': CMAKE_PREFIX_PATH=/home/shengbin/camera_ws/install/image_transport:/home/shengbin/camera_ws/install/cv_bridge:/home/shengbin/camera_ws/install/camera_calibration_parsers:/home/shengbin/camera_ws/install/vision_opencv:/home/shengbin/camera_ws/install/v4l2_camera:/home/shengbin/camera_ws/install/image_pipeline:/home/shengbin/camera_ws/install/stereo_image_proc:/home/shengbin/camera_ws/install/image_proc:/home/shengbin/camera_ws/install/tracetools_image_pipeline:/home/shengbin/camera_ws/install/image_transport_plugins:/home/shengbin/camera_ws/install/theora_image_transport:/home/shengbin/camera_ws/install/ros2_shared:/home/shengbin/camera_ws/install/image_view:/home/shengbin/camera_ws/install/image_rotate:/home/shengbin/camera_ws/install/image_publisher:/home/shengbin/camera_ws/install/image_common:/home/shengbin/camera_ws/install/depth_image_proc:/home/shengbin/camera_ws/install/compressed_image_transport:/home/shengbin/camera_ws/install/compressed_depth_image_transport:/home/shengbin/camera_ws/install/image_geometry:/home/shengbin/camera_ws/install/camera_info_manager:/home/shengbin/camera_ws/install/opencv_tests:/home/shengbin/camera_ws/install/camera_calibration:/home/shengbin/camera_ws/install/camera:/opt/ros/humble LD_LIBRARY_PATH=/home/shengbin/camera_ws/install/image_transport/lib:/home/shengbin/camera_ws/install/cv_bridge/lib:/home/shengbin/camera_ws/install/camera_calibration_parsers/lib:/home/shengbin/camera_ws/install/v4l2_camera/lib:/home/shengbin/camera_ws/install/stereo_image_proc/lib:/home/shengbin/camera_ws/install/image_proc/lib:/home/shengbin/camera_ws/install/tracetools_image_pipeline/lib:/home/shengbin/camera_ws/install/theora_image_transport/lib:/home/shengbin/camera_ws/install/image_view/lib:/home/shengbin/camera_ws/install/image_rotate/lib:/home/shengbin/camera_ws/install/image_publisher/lib:/home/shengbin/camera_ws/install/depth_image_proc/lib:/home/shengbin/camera_ws/install/compressed_image_transport/lib:/home/shengbin/camera_ws/install/compressed_depth_image_transport/lib:/home/shengbin/camera_ws/install/image_geometry/lib:/home/shengbin/camera_ws/install/camera_info_manager/lib:/opt/ros/humble/opt/rviz_ogre_vendor/lib:/opt/ros/humble/lib/x86_64-linux-gnu:/opt/ros/humble/lib /usr/bin/cmake --build /home/shengbin/camera_ws/build/image_view -- -j16 -l16
+[0.262s] -- Found ament_cmake_auto: 1.3.5 (/opt/ros/humble/share/ament_cmake_auto/cmake)
+[0.591s] -- Found rosidl_generator_c: 3.1.5 (/opt/ros/humble/share/rosidl_generator_c/cmake)
+[0.595s] -- Found rosidl_adapter: 3.1.5 (/opt/ros/humble/share/rosidl_adapter/cmake)
+[0.604s] -- Found rosidl_generator_cpp: 3.1.5 (/opt/ros/humble/share/rosidl_generator_cpp/cmake)
+[0.622s] -- Using all available rosidl_typesupport_c: rosidl_typesupport_fastrtps_c;rosidl_typesupport_introspection_c
+[0.647s] -- Using all available rosidl_typesupport_cpp: rosidl_typesupport_fastrtps_cpp;rosidl_typesupport_introspection_cpp
+[0.738s] -- Found rmw_implementation_cmake: 6.1.1 (/opt/ros/humble/share/rmw_implementation_cmake/cmake)
+[0.741s] -- Found rmw_cyclonedds_cpp: 1.3.4 (/opt/ros/humble/share/rmw_cyclonedds_cpp/cmake)
+[0.786s] -- Using RMW implementation 'rmw_cyclonedds_cpp' as default
+[1.763s] -- Found ament_lint_auto: 0.12.8 (/opt/ros/humble/share/ament_lint_auto/cmake)
+[1.790s] -- Added test 'copyright' to check source files copyright and LICENSE
+[1.793s] -- Added test 'cppcheck' to perform static code analysis on C / C++ code
+[1.794s] -- Configured cppcheck include dirs: /home/shengbin/camera_ws/src/image_pipeline/image_view/include
+[1.803s] -- Configured cppcheck exclude dirs and/or files: 
+[1.805s] -- Added test 'cpplint' to check C / C++ code against the Google style
+[1.805s] -- Configured cpplint exclude dirs and/or files: 
+[1.806s] -- Added test 'lint_cmake' to check CMake code style
+[1.809s] -- Added test 'uncrustify' to check C / C++ code style
+[1.810s] -- Configured uncrustify additional arguments: 
+[1.810s] -- Added test 'xmllint' to check XML markup files
+[1.821s] -- Configuring done
+[2.075s] -- Generating done
+[2.080s] -- Build files have been written to: /home/shengbin/camera_ws/build/image_view
+[2.213s] [35m[1mConsolidate compiler generated dependencies of target image_view_nodes[0m
+[2.281s] [  5%] [32mBuilding CXX object CMakeFiles/image_view_nodes.dir/src/disparity_view_node.cpp.o[0m
+[2.301s] [ 10%] [32mBuilding CXX object CMakeFiles/image_view_nodes.dir/src/extract_images_node.cpp.o[0m
+[2.363s] [ 15%] [32mBuilding CXX object CMakeFiles/image_view_nodes.dir/src/image_saver_node.cpp.o[0m
+[2.363s] [ 21%] [32mBuilding CXX object CMakeFiles/image_view_nodes.dir/src/image_view_node.cpp.o[0m
+[2.387s] [ 26%] [32mBuilding CXX object CMakeFiles/image_view_nodes.dir/src/stereo_view_node.cpp.o[0m
+[2.410s] [ 31%] [32mBuilding CXX object CMakeFiles/image_view_nodes.dir/src/video_recorder_node.cpp.o[0m
+[36.939s] [ 36%] [32m[1mLinking CXX shared library libimage_view_nodes.so[0m
+[38.435s] [ 36%] Built target image_view_nodes
+[38.448s] [35m[1mConsolidate compiler generated dependencies of target image_saver[0m
+[38.453s] [35m[1mConsolidate compiler generated dependencies of target disparity_view[0m
+[38.454s] [35m[1mConsolidate compiler generated dependencies of target video_recorder[0m
+[38.454s] [35m[1mConsolidate compiler generated dependencies of target extract_images[0m
+[38.454s] [35m[1mConsolidate compiler generated dependencies of target stereo_view[0m
+[38.454s] [35m[1mConsolidate compiler generated dependencies of target image_view[0m
+[38.473s] [ 42%] [32mBuilding CXX object CMakeFiles/video_recorder.dir/src/video_recorder.cpp.o[0m
+[38.485s] [ 47%] [32mBuilding CXX object CMakeFiles/disparity_view.dir/src/disparity_view.cpp.o[0m
+[38.494s] [ 68%] [32mBuilding CXX object CMakeFiles/stereo_view.dir/src/stereo_view.cpp.o[0m
+[38.494s] [ 68%] [32mBuilding CXX object CMakeFiles/extract_images.dir/src/extract_images.cpp.o[0m
+[38.494s] [ 68%] [32mBuilding CXX object CMakeFiles/image_saver.dir/src/image_saver.cpp.o[0m
+[38.494s] [ 68%] [32mBuilding CXX object CMakeFiles/image_view.dir/src/image_view.cpp.o[0m
+[41.802s] [ 73%] [32m[1mLinking CXX executable video_recorder[0m
+[42.056s] [ 78%] [32m[1mLinking CXX executable disparity_view[0m
+[42.826s] [ 78%] Built target video_recorder
+[42.984s] [ 78%] Built target disparity_view
+[43.106s] [ 84%] [32m[1mLinking CXX executable stereo_view[0m
+[43.463s] [ 89%] [32m[1mLinking CXX executable image_saver[0m
+[43.814s] [ 94%] [32m[1mLinking CXX executable extract_images[0m
+[43.835s] [100%] [32m[1mLinking CXX executable image_view[0m
+[44.171s] [100%] Built target stereo_view
+[44.257s] [100%] Built target image_saver
+[44.596s] [100%] Built target image_view
+[44.712s] [100%] Built target extract_images
+[44.723s] Invoked command in '/home/shengbin/camera_ws/build/image_view' returned '0': CMAKE_PREFIX_PATH=/home/shengbin/camera_ws/install/image_transport:/home/shengbin/camera_ws/install/cv_bridge:/home/shengbin/camera_ws/install/camera_calibration_parsers:/home/shengbin/camera_ws/install/vision_opencv:/home/shengbin/camera_ws/install/v4l2_camera:/home/shengbin/camera_ws/install/image_pipeline:/home/shengbin/camera_ws/install/stereo_image_proc:/home/shengbin/camera_ws/install/image_proc:/home/shengbin/camera_ws/install/tracetools_image_pipeline:/home/shengbin/camera_ws/install/image_transport_plugins:/home/shengbin/camera_ws/install/theora_image_transport:/home/shengbin/camera_ws/install/ros2_shared:/home/shengbin/camera_ws/install/image_view:/home/shengbin/camera_ws/install/image_rotate:/home/shengbin/camera_ws/install/image_publisher:/home/shengbin/camera_ws/install/image_common:/home/shengbin/camera_ws/install/depth_image_proc:/home/shengbin/camera_ws/install/compressed_image_transport:/home/shengbin/camera_ws/install/compressed_depth_image_transport:/home/shengbin/camera_ws/install/image_geometry:/home/shengbin/camera_ws/install/camera_info_manager:/home/shengbin/camera_ws/install/opencv_tests:/home/shengbin/camera_ws/install/camera_calibration:/home/shengbin/camera_ws/install/camera:/opt/ros/humble LD_LIBRARY_PATH=/home/shengbin/camera_ws/install/image_transport/lib:/home/shengbin/camera_ws/install/cv_bridge/lib:/home/shengbin/camera_ws/install/camera_calibration_parsers/lib:/home/shengbin/camera_ws/install/v4l2_camera/lib:/home/shengbin/camera_ws/install/stereo_image_proc/lib:/home/shengbin/camera_ws/install/image_proc/lib:/home/shengbin/camera_ws/install/tracetools_image_pipeline/lib:/home/shengbin/camera_ws/install/theora_image_transport/lib:/home/shengbin/camera_ws/install/image_view/lib:/home/shengbin/camera_ws/install/image_rotate/lib:/home/shengbin/camera_ws/install/image_publisher/lib:/home/shengbin/camera_ws/install/depth_image_proc/lib:/home/shengbin/camera_ws/install/compressed_image_transport/lib:/home/shengbin/camera_ws/install/compressed_depth_image_transport/lib:/home/shengbin/camera_ws/install/image_geometry/lib:/home/shengbin/camera_ws/install/camera_info_manager/lib:/opt/ros/humble/opt/rviz_ogre_vendor/lib:/opt/ros/humble/lib/x86_64-linux-gnu:/opt/ros/humble/lib /usr/bin/cmake --build /home/shengbin/camera_ws/build/image_view -- -j16 -l16
+[44.772s] Invoking command in '/home/shengbin/camera_ws/build/image_view': CMAKE_PREFIX_PATH=/home/shengbin/camera_ws/install/image_transport:/home/shengbin/camera_ws/install/cv_bridge:/home/shengbin/camera_ws/install/camera_calibration_parsers:/home/shengbin/camera_ws/install/vision_opencv:/home/shengbin/camera_ws/install/v4l2_camera:/home/shengbin/camera_ws/install/image_pipeline:/home/shengbin/camera_ws/install/stereo_image_proc:/home/shengbin/camera_ws/install/image_proc:/home/shengbin/camera_ws/install/tracetools_image_pipeline:/home/shengbin/camera_ws/install/image_transport_plugins:/home/shengbin/camera_ws/install/theora_image_transport:/home/shengbin/camera_ws/install/ros2_shared:/home/shengbin/camera_ws/install/image_view:/home/shengbin/camera_ws/install/image_rotate:/home/shengbin/camera_ws/install/image_publisher:/home/shengbin/camera_ws/install/image_common:/home/shengbin/camera_ws/install/depth_image_proc:/home/shengbin/camera_ws/install/compressed_image_transport:/home/shengbin/camera_ws/install/compressed_depth_image_transport:/home/shengbin/camera_ws/install/image_geometry:/home/shengbin/camera_ws/install/camera_info_manager:/home/shengbin/camera_ws/install/opencv_tests:/home/shengbin/camera_ws/install/camera_calibration:/home/shengbin/camera_ws/install/camera:/opt/ros/humble LD_LIBRARY_PATH=/home/shengbin/camera_ws/install/image_transport/lib:/home/shengbin/camera_ws/install/cv_bridge/lib:/home/shengbin/camera_ws/install/camera_calibration_parsers/lib:/home/shengbin/camera_ws/install/v4l2_camera/lib:/home/shengbin/camera_ws/install/stereo_image_proc/lib:/home/shengbin/camera_ws/install/image_proc/lib:/home/shengbin/camera_ws/install/tracetools_image_pipeline/lib:/home/shengbin/camera_ws/install/theora_image_transport/lib:/home/shengbin/camera_ws/install/image_view/lib:/home/shengbin/camera_ws/install/image_rotate/lib:/home/shengbin/camera_ws/install/image_publisher/lib:/home/shengbin/camera_ws/install/depth_image_proc/lib:/home/shengbin/camera_ws/install/compressed_image_transport/lib:/home/shengbin/camera_ws/install/compressed_depth_image_transport/lib:/home/shengbin/camera_ws/install/image_geometry/lib:/home/shengbin/camera_ws/install/camera_info_manager/lib:/opt/ros/humble/opt/rviz_ogre_vendor/lib:/opt/ros/humble/lib/x86_64-linux-gnu:/opt/ros/humble/lib /usr/bin/cmake --install /home/shengbin/camera_ws/build/image_view
+[44.779s] -- Install configuration: ""
+[44.779s] -- Up-to-date: /home/shengbin/camera_ws/install/image_view/include
+[44.779s] -- Up-to-date: /home/shengbin/camera_ws/install/image_view/include/image_view
+[44.779s] -- Installing: /home/shengbin/camera_ws/install/image_view/include/image_view/video_recorder_node.hpp
+[44.779s] -- Installing: /home/shengbin/camera_ws/install/image_view/include/image_view/image_view_node.hpp
+[44.779s] -- Installing: /home/shengbin/camera_ws/install/image_view/include/image_view/stereo_view_node.hpp
+[44.780s] -- Installing: /home/shengbin/camera_ws/install/image_view/include/image_view/extract_images_node.hpp
+[44.780s] -- Installing: /home/shengbin/camera_ws/install/image_view/include/image_view/image_saver_node.hpp
+[44.780s] -- Installing: /home/shengbin/camera_ws/install/image_view/include/image_view/disparity_view_node.hpp
+[44.780s] -- Up-to-date: /home/shengbin/camera_ws/install/image_view/share/image_view/environment/library_path.sh
+[44.780s] -- Installing: /home/shengbin/camera_ws/install/image_view/share/image_view/environment/library_path.dsv
+[44.780s] -- Installing: /home/shengbin/camera_ws/install/image_view/lib/libimage_view_nodes.so
+[44.788s] -- Set runtime path of "/home/shengbin/camera_ws/install/image_view/lib/libimage_view_nodes.so" to ""
+[44.788s] -- Installing: /home/shengbin/camera_ws/install/image_view/lib/image_view/disparity_view
+[44.788s] -- Set runtime path of "/home/shengbin/camera_ws/install/image_view/lib/image_view/disparity_view" to ""
+[44.788s] -- Installing: /home/shengbin/camera_ws/install/image_view/lib/image_view/image_view
+[44.789s] -- Set runtime path of "/home/shengbin/camera_ws/install/image_view/lib/image_view/image_view" to ""
+[44.789s] -- Installing: /home/shengbin/camera_ws/install/image_view/lib/image_view/stereo_view
+[44.789s] -- Set runtime path of "/home/shengbin/camera_ws/install/image_view/lib/image_view/stereo_view" to ""
+[44.790s] -- Installing: /home/shengbin/camera_ws/install/image_view/lib/image_view/extract_images
+[44.790s] -- Set runtime path of "/home/shengbin/camera_ws/install/image_view/lib/image_view/extract_images" to ""
+[44.790s] -- Installing: /home/shengbin/camera_ws/install/image_view/lib/image_view/image_saver
+[44.790s] -- Set runtime path of "/home/shengbin/camera_ws/install/image_view/lib/image_view/image_saver" to ""
+[44.790s] -- Installing: /home/shengbin/camera_ws/install/image_view/lib/image_view/video_recorder
+[44.791s] -- Set runtime path of "/home/shengbin/camera_ws/install/image_view/lib/image_view/video_recorder" to ""
+[44.791s] -- Up-to-date: /home/shengbin/camera_ws/install/image_view/share/ament_index/resource_index/package_run_dependencies/image_view
+[44.791s] -- Up-to-date: /home/shengbin/camera_ws/install/image_view/share/ament_index/resource_index/parent_prefix_path/image_view
+[44.791s] -- Up-to-date: /home/shengbin/camera_ws/install/image_view/share/image_view/environment/ament_prefix_path.sh
+[44.791s] -- Installing: /home/shengbin/camera_ws/install/image_view/share/image_view/environment/ament_prefix_path.dsv
+[44.791s] -- Up-to-date: /home/shengbin/camera_ws/install/image_view/share/image_view/environment/path.sh
+[44.791s] -- Installing: /home/shengbin/camera_ws/install/image_view/share/image_view/environment/path.dsv
+[44.791s] -- Up-to-date: /home/shengbin/camera_ws/install/image_view/share/image_view/local_setup.bash
+[44.791s] -- Up-to-date: /home/shengbin/camera_ws/install/image_view/share/image_view/local_setup.sh
+[44.791s] -- Up-to-date: /home/shengbin/camera_ws/install/image_view/share/image_view/local_setup.zsh
+[44.791s] -- Installing: /home/shengbin/camera_ws/install/image_view/share/image_view/local_setup.dsv
+[44.792s] -- Installing: /home/shengbin/camera_ws/install/image_view/share/image_view/package.dsv
+[44.792s] -- Up-to-date: /home/shengbin/camera_ws/install/image_view/share/ament_index/resource_index/packages/image_view
+[44.792s] -- Up-to-date: /home/shengbin/camera_ws/install/image_view/share/ament_index/resource_index/rclcpp_components/image_view
+[44.792s] -- Up-to-date: /home/shengbin/camera_ws/install/image_view/share/image_view/cmake/ament_cmake_export_dependencies-extras.cmake
+[44.792s] -- Up-to-date: /home/shengbin/camera_ws/install/image_view/share/image_view/cmake/ament_cmake_export_include_directories-extras.cmake
+[44.792s] -- Up-to-date: /home/shengbin/camera_ws/install/image_view/share/image_view/cmake/ament_cmake_export_libraries-extras.cmake
+[44.792s] -- Up-to-date: /home/shengbin/camera_ws/install/image_view/share/image_view/cmake/image_viewConfig.cmake
+[44.792s] -- Up-to-date: /home/shengbin/camera_ws/install/image_view/share/image_view/cmake/image_viewConfig-version.cmake
+[44.792s] -- Installing: /home/shengbin/camera_ws/install/image_view/share/image_view/package.xml
+[44.794s] Invoked command in '/home/shengbin/camera_ws/build/image_view' returned '0': CMAKE_PREFIX_PATH=/home/shengbin/camera_ws/install/image_transport:/home/shengbin/camera_ws/install/cv_bridge:/home/shengbin/camera_ws/install/camera_calibration_parsers:/home/shengbin/camera_ws/install/vision_opencv:/home/shengbin/camera_ws/install/v4l2_camera:/home/shengbin/camera_ws/install/image_pipeline:/home/shengbin/camera_ws/install/stereo_image_proc:/home/shengbin/camera_ws/install/image_proc:/home/shengbin/camera_ws/install/tracetools_image_pipeline:/home/shengbin/camera_ws/install/image_transport_plugins:/home/shengbin/camera_ws/install/theora_image_transport:/home/shengbin/camera_ws/install/ros2_shared:/home/shengbin/camera_ws/install/image_view:/home/shengbin/camera_ws/install/image_rotate:/home/shengbin/camera_ws/install/image_publisher:/home/shengbin/camera_ws/install/image_common:/home/shengbin/camera_ws/install/depth_image_proc:/home/shengbin/camera_ws/install/compressed_image_transport:/home/shengbin/camera_ws/install/compressed_depth_image_transport:/home/shengbin/camera_ws/install/image_geometry:/home/shengbin/camera_ws/install/camera_info_manager:/home/shengbin/camera_ws/install/opencv_tests:/home/shengbin/camera_ws/install/camera_calibration:/home/shengbin/camera_ws/install/camera:/opt/ros/humble LD_LIBRARY_PATH=/home/shengbin/camera_ws/install/image_transport/lib:/home/shengbin/camera_ws/install/cv_bridge/lib:/home/shengbin/camera_ws/install/camera_calibration_parsers/lib:/home/shengbin/camera_ws/install/v4l2_camera/lib:/home/shengbin/camera_ws/install/stereo_image_proc/lib:/home/shengbin/camera_ws/install/image_proc/lib:/home/shengbin/camera_ws/install/tracetools_image_pipeline/lib:/home/shengbin/camera_ws/install/theora_image_transport/lib:/home/shengbin/camera_ws/install/image_view/lib:/home/shengbin/camera_ws/install/image_rotate/lib:/home/shengbin/camera_ws/install/image_publisher/lib:/home/shengbin/camera_ws/install/depth_image_proc/lib:/home/shengbin/camera_ws/install/compressed_image_transport/lib:/home/shengbin/camera_ws/install/compressed_depth_image_transport/lib:/home/shengbin/camera_ws/install/image_geometry/lib:/home/shengbin/camera_ws/install/camera_info_manager/lib:/opt/ros/humble/opt/rviz_ogre_vendor/lib:/opt/ros/humble/lib/x86_64-linux-gnu:/opt/ros/humble/lib /usr/bin/cmake --install /home/shengbin/camera_ws/build/image_view
