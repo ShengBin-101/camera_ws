@@ -35,11 +35,29 @@ class GateDetectorNode(Node):
 
     def image_callback(self, msg):
         cv_image = self.cv_bridge.compressed_imgmsg_to_cv2(msg)
-        
+
+        annotated_frame = cv_image.copy()
+
         results = model(cv_image)
 
-        # Visualize the results on the frame
-        annotated_frame = results[0].plot()
+        if len(results) > 0:
+            for result in results:
+                # Check if the boxes tensor is not empty
+                if len(result.boxes) > 0:
+                    # Obtain the coordinates of the bounding box
+                    x1, y1, x2, y2 = result.boxes.xyxy[0]
+
+                    # Obtain the center of the bounding box in pixels
+                    center_x = (x1 + x2) / 2
+                    center_y = (y1 + y2) / 2
+
+                    # Draw a circle at the center of the bounding box
+                    cv2.circle(annotated_frame, (int(center_x), int(center_y)), 5, (0, 0, 255), -1)
+                    # Visualize the results on the frame
+                    annotated_frame = results[0].plot()
+
+                    print("gate detected")
+
 
         compressed_msg = self.cv_bridge.cv2_to_compressed_imgmsg(annotated_frame)
         self.publisher.publish(compressed_msg)

@@ -12,8 +12,8 @@ class VideoWriterNode(Node):
     def __init__(self):
         super().__init__('video_writer_node')
         self.subscription = self.create_subscription(
-            Image,
-            '/video_feed',
+            CompressedImage,
+            '/Hornet/Cam/left/image_rect_color/compressed',
             self.image_callback,
             10
         )
@@ -24,11 +24,11 @@ class VideoWriterNode(Node):
         try:
             
             # Convert compressed image to OpenCV image
-            image = self.bridge.imgmsg_to_cv2(msg, "bgr8")
-            if len(image.shape) == 2:
-                image = cv2.cvtColor(image, cv2.COLOR_BayerGB2BGR)
+            image = self.bridge.compressed_imgmsg_to_cv2(msg, "bgr8")
+            # if len(image.shape) == 2:
+            #     image = cv2.cvtColor(image, cv2.COLOR_BayerGB2BGR)
 
-            # # rotate image (if needed)
+            # rotate image (if needed)
             # image = cv2.rotate(image, cv2.ROTATE_90_COUNTERCLOCKWISE)
             
             # # resize image (if needed)
@@ -36,10 +36,11 @@ class VideoWriterNode(Node):
 
             # Initialize video writer if not already done
             if self.video_writer is None:
-                width = 640
-                height = 480
+                # width = 640
+                # height = 480
                 fourcc = cv2.VideoWriter_fourcc(*'mp4v')
-                self.video_writer = cv2.VideoWriter('output.mp4', fourcc, 30, (width, height))
+                self.video_writer = cv2.VideoWriter('competition.mp4', fourcc, 30, (image.shape[1], image.shape[0]))
+                # self.video_writer = cv2.VideoWriter('output.mp4', fourcc, 30, (width, height))
 
             # Write frame to video file
             self.video_writer.write(image)
