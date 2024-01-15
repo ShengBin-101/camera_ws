@@ -42,8 +42,6 @@ def generate_launch_description():
             {"resource": "v4l2:///dev/video0"},
             *camera_parameters,
         ],
-        
-
     )
 
     rightcam = Node(
@@ -77,30 +75,30 @@ def generate_launch_description():
         output="screen",
     )
 
-    # Launch lines.py and gate_yolo.py
-    lines_node = Node(
-        package="camera",
-        executable="lines",
-        output="screen",
-    )
+    
+    # lines_node = Node(
+    #     package="camera",
+    #     executable="lines",
+    #     output="screen",
+    # )
 
-    left_gate_yolo_node = Node(
-        package="camera",
-        executable="gate_yolo",
-        output="screen",
-        parameters=[
-            {"camera": "left"},
-        ],
-    )
+    # left_gate_yolo_node = Node(
+    #     package="camera",
+    #     executable="gate_yolo",
+    #     output="screen",
+    #     parameters=[
+    #         {"camera": "left"},
+    #     ],
+    # )
 
-    right_gate_yolo_node = Node(
-        package="camera",
-        executable="gate_yolo",
-        output="screen",
-        parameters=[
-            {"camera": "right"},
-        ],
-    )
+    # right_gate_yolo_node = Node(
+    #     package="camera",
+    #     executable="gate_yolo",
+    #     output="screen",
+    #     parameters=[
+    #         {"camera": "right"},
+    #     ],
+    # )
 
     return LaunchDescription(
         [
@@ -109,9 +107,6 @@ def generate_launch_description():
             TimerAction(period=camera_init_delay * 2, actions=[rightcam]),
             TimerAction(period=camera_init_delay * 3, actions=[bottomcam]),
             rectify_node,
-            lines_node,
-            left_gate_yolo_node,
-            right_gate_yolo_node,
         ]
     )
 

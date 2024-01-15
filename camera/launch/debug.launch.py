@@ -98,8 +98,6 @@ def generate_launch_description():
         leftcam,
         rightcam,
         bottomcam,
-        # image_proc_node,
-        # stereo_proc_launch,
         # enhance_node,
         # debug_hsv_node,
 

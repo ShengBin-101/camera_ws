@@ -9,9 +9,9 @@ from sensor_msgs.msg import Image, CompressedImage
 # import CameraInfo if want to publish calibration data
 
 # file paths are correct tested working when publish CameraInfo
-LEFT_CALIBRATION_PATH = "src/camera_ws/camera/calibration/calibrationdata/left.yaml"
-RIGHT_CALIBRATION_PATH = "src/camera_ws/camera/calibration/calibrationdata/right.yaml"
-BOTTOM_CALIBRATION_PATH = "src/camera_ws/camera/calibration/calibrationdata/bottom.yaml"
+LEFT_CALIBRATION_PATH = "src/camera/calibration/calibrationdata/left.yaml"
+RIGHT_CALIBRATION_PATH = "src/camera/calibration/calibrationdata/right.yaml"
+BOTTOM_CALIBRATION_PATH = "src/camera/calibration/calibrationdata/bottom.yaml"
 
 
 class CalibrationNode(Node):

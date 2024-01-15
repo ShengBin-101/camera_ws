@@ -7,103 +7,124 @@ from std_msgs.msg import Float32
 
 # This node subscribes to the left and right camera topics and publishes the estimated distance to a yellow object
 
+# baseline of camera is 13.8 cm
+baseline = 0.138 
+
+# focal length is 2.96mm (according to specsheet)
+focal_length_mm = 2.96
+
+# pixel size in mm
+pixel_size_mm = 1.12 / 1000  # convert from μm to mm
+
+# sensor resolution in pixels
+sensor_resolution_pixels = 3280  # width of the sensor active area
+
+# sensor width in mmfocal_length_mm
+sensor_width_mm = sensor_resolution_pixels * pixel_size_mm
+
+# calculate pixels per mm
+pixels_per_mm = sensor_resolution_pixels / sensor_width_mm
+
+# focal_length_pixels = focal_length_mm * pixels_per_mm
+focal_length_pixels_1 = (3280*0.5) / (np.tan(50.7 * 0.5 * np.pi / 180))
+
+# Converting focal length in 2.96mm to focal length in pixels 
+focal_length_pixels_2 = focal_length_mm * pixels_per_mm
+
 class StereoVisionNode:
     def __init__(self):
         self.node = rclpy.create_node('stereo_vision_node')
         self.left_sub = self.node.create_subscription(
-            Image, '/left/image_raw', self.left_image_callback, 10)
+            CompressedImage, "/left/calibrated/compressed", self.left_image_callback, 10)
         self.right_sub = self.node.create_subscription(
-            Image, '/right/image_raw', self.right_image_callback, 10)
-        self.left_pub = self.node.create_publisher(
-            CompressedImage, '/left/mask/compressed', 10)
-        self.right_pub = self.node.create_publisher(
-            CompressedImage, '/right/mask/compressed', 10)
+            CompressedImage, "/right/calibrated/compressed", self.right_image_callback, 10)
+        self.disparity_pub = self.node.create_publisher(
+            CompressedImage, "/left/disparity/compressed", 10)
+        self.depthimg_pub = self.node.create_publisher(
+            CompressedImage, "/left/depthimg/compressed", 10)
         
         self.bridge = CvBridge()
 
     def left_image_callback(self, left_msg):
-        self.left_image = self.bridge.imgmsg_to_cv2(left_msg, desired_encoding='bgr8')
+        self.left_image = self.bridge.compressed_imgmsg_to_cv2(left_msg, desired_encoding='bgr8')
         self.process_images()
 
     def right_image_callback(self, right_msg):
-        self.right_image = self.bridge.imgmsg_to_cv2(right_msg, desired_encoding='bgr8')
+        self.right_image = self.bridge.compressed_imgmsg_to_cv2(right_msg, desired_encoding='bgr8')
         self.process_images()
 
     def process_images(self):
         if hasattr(self, 'left_image') and hasattr(self, 'right_image'):
-            # Detect yellow objects in the left image
-            yellow_mask = self.detect_yellow_object(self.left_image)
+            
+            # Optional: Segment regions of interest
 
             # Compute disparity map
             disparity_map = self.compute_disparity(self.left_image, self.right_image)
 
+            # Convert disparity map to depth map
+            depth_map = self.convert_disparity_to_depth(disparity_map)
+
             # Estimate distance to yellow object
-            distance = self.estimate_distance(disparity_map, yellow_mask)
+            distance = self.estimate_distance(depth_map)
+            print(distance)
 
-            # Publish the estimated distance
-            self.publish_distance(distance)
+            # Convert disparity map to 8-bit image
+            disparity_map = cv2.normalize(
+                disparity_map, None, alpha=0, beta=255, norm_type=cv2.NORM_MINMAX, dtype=cv2.CV_8U
+            )
 
-    def detect_yellow_object(self, image):
-        # Convert image to HSV color space
-        hsv = cv2.cvtColor(image, cv2.COLOR_BGR2HSV)
+            # Publish the disparity map
+            disparity_msg = self.bridge.cv2_to_compressed_imgmsg(disparity_map)
+            self.disparity_pub.publish(disparity_msg)
 
-        # Define yellow color range in HSV
-        lower_yellow = np.array([7, 122, 73])
-        upper_yellow = np.array([29, 255, 255])
+            # Convert depth map to 8-bit image
 
-        # Threshold the HSV image to get only yellow colors
-        yellow_mask = cv2.inRange(hsv, lower_yellow, upper_yellow)
-        
-        return yellow_mask
+            depth_map = depth_map.astype(np.uint8)
+            depth_map = cv2.normalize(
+                depth_map, None, alpha=0, beta=255, norm_type=cv2.NORM_MINMAX, dtype=cv2.CV_8U
+            )
+
+            # Publish the depth map
+            depth_msg = self.bridge.cv2_to_compressed_imgmsg(depth_map)
+            self.depthimg_pub.publish(depth_msg)
+
+    def convert_disparity_to_depth(self, disparity_map):
+        # Convert disparity map to depth map, ignoring pixels with value 0
+        depth_map = np.zeros(disparity_map.shape)
+        depth_map[disparity_map > 0] = (focal_length_pixels_1 * baseline) / disparity_map[disparity_map > 0]
+
+        return depth_map
 
     def compute_disparity(self, left_image, right_image):
         left_gray = cv2.cvtColor(left_image, cv2.COLOR_BGR2GRAY)
         right_gray = cv2.cvtColor(right_image, cv2.COLOR_BGR2GRAY)
 
-        stereo = cv2.StereoSGBM_create(
-            minDisparity=0,
-            numDisparities=16 * 5,
-            blockSize=11,
-            P1=8 * 3 * 11 ** 2,
-            P2=32 * 3 * 11 ** 2,
-            disp12MaxDiff=1,
-            uniquenessRatio=10,
-            speckleWindowSize=100,
-            speckleRange=32,
-            preFilterCap=63
-        )
+        stereo = cv2.StereoBM_create()
+
+        stereo.setMinDisparity(5)
+        stereo.setNumDisparities(32)
+        stereo.setBlockSize(41)
+        stereo.setSpeckleRange(9)
+        stereo.setSpeckleWindowSize(12)
+        stereo.setDisp12MaxDiff(3)
+        stereo.setUniquenessRatio(5)
+        stereo.setPreFilterCap(16)
+        stereo.setPreFilterSize(9)
+        stereo.setPreFilterType(1)
+        stereo.setTextureThreshold(5)
 
         disparity_map = stereo.compute(left_gray, right_gray)
+
         return disparity_map
 
-    def estimate_distance(self, disparity_map, object_mask):
-        # Calculate average disparity of yellow object
-                # Calculate average disparity of yellow object
-        yellow_pixels = np.where(object_mask > 0)
-        if yellow_pixels[0].size > 0:
-            yellow_disparity = np.mean(disparity_map[yellow_pixels])
-        else:
-            yellow_disparity = 0  # or some other default value
+    def estimate_distance(self, depth_map):
+        # Get mean depth averaged over center line of image
+        mean_depth = np.mean(depth_map[:, depth_map.shape[1] // 2])
+
         
-        focal_length_mm = 3.2
-        image_width_pixels = 640  # Replace with the actual image width in pixels
-        sensor_width_mm = 3.674  # Replace with the actual sensor width in mm
-
-        focal_length_pixels = (focal_length_mm * image_width_pixels) / sensor_width_mm
-        # Replace with your focal length and baseline
+        return mean_depth
         
-        baseline = 0.1  # Baseline in meters
 
-        # Calculate distance using disparity
-        distance = (focal_length_pixels * baseline) / yellow_disparity
-        return distance
-
-    def publish_distance(self, distance):
-        # Publish the estimated distance
-        # (Replace '/object_distance' with your desired topic name)
-        distance_msg = Float32()
-        distance_msg.data = distance
-        self.node.create_publisher(Float32, '/object_distance', 10).publish(distance_msg)
 
 def main():
     rclpy.init()

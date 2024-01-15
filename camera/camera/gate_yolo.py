@@ -7,7 +7,7 @@ from sensor_msgs.msg import CompressedImage, Image
 from std_msgs.msg import Float32MultiArray
 from ultralytics import YOLO
 
-model = YOLO("src/camera_ws/camera/camera/weights/yolov8n_271223_4.pt")
+model = YOLO("src/camera_ws/camera/camera/weights/yolov8n_040124_1.pt")
 
 
 class GateDetectorNode(Node):
