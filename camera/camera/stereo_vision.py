@@ -42,6 +42,8 @@ class StereoVisionNode:
             CompressedImage, "/left/disparity/compressed", 10)
         self.depthimg_pub = self.node.create_publisher(
             CompressedImage, "/left/depthimg/compressed", 10)
+        self.wall_distance_pub = self.node.create_publisher(
+            Float32, "/left/wall_distance", 10)
         
         self.bridge = CvBridge()
 
@@ -64,9 +66,9 @@ class StereoVisionNode:
             # Convert disparity map to depth map
             depth_map = self.convert_disparity_to_depth(disparity_map)
 
-            # Estimate distance to yellow object
-            distance = self.estimate_distance(depth_map)
-            print(distance)
+            # Estimate distance to wall
+            wall_distance = self.estimate_distance(depth_map)
+            #print(wall_distance)
 
             # Convert disparity map to 8-bit image
             disparity_map = cv2.normalize(
@@ -83,10 +85,19 @@ class StereoVisionNode:
             depth_map = cv2.normalize(
                 depth_map, None, alpha=0, beta=255, norm_type=cv2.NORM_MINMAX, dtype=cv2.CV_8U
             )
+            # Invert the depth map
+            depth_map = cv2.bitwise_not(depth_map)
+            # Apply color map to depth map red = near, blue = far
+            depth_map_color = cv2.applyColorMap(depth_map, cv2.COLORMAP_JET)
 
             # Publish the depth map
-            depth_msg = self.bridge.cv2_to_compressed_imgmsg(depth_map)
+            depth_msg = self.bridge.cv2_to_compressed_imgmsg(depth_map_color)
             self.depthimg_pub.publish(depth_msg)
+
+            # Publish the wall distance
+            wall_distance_msg = Float32()
+            wall_distance_msg.data = wall_distance
+            self.wall_distance_pub.publish(wall_distance_msg)
 
     def convert_disparity_to_depth(self, disparity_map):
         # Convert disparity map to depth map, ignoring pixels with value 0
@@ -101,27 +112,25 @@ class StereoVisionNode:
 
         stereo = cv2.StereoBM_create()
 
-        stereo.setMinDisparity(5)
-        stereo.setNumDisparities(32)
-        stereo.setBlockSize(41)
-        stereo.setSpeckleRange(9)
-        stereo.setSpeckleWindowSize(12)
-        stereo.setDisp12MaxDiff(3)
-        stereo.setUniquenessRatio(5)
-        stereo.setPreFilterCap(16)
+        stereo.setMinDisparity(1)
+        stereo.setNumDisparities(48)
+        stereo.setBlockSize(27)
+        stereo.setSpeckleRange(4)
+        stereo.setSpeckleWindowSize(5)
+        stereo.setDisp12MaxDiff(1)
+        stereo.setUniquenessRatio(15)
+        stereo.setPreFilterCap(9)
         stereo.setPreFilterSize(9)
         stereo.setPreFilterType(1)
-        stereo.setTextureThreshold(5)
+        stereo.setTextureThreshold(10)
 
         disparity_map = stereo.compute(left_gray, right_gray)
 
         return disparity_map
 
     def estimate_distance(self, depth_map):
-        # Get mean depth averaged over center line of image
-        mean_depth = np.mean(depth_map[:, depth_map.shape[1] // 2])
-
-        
+        # Get mean depth 
+        mean_depth = np.mean(depth_map[depth_map > 0])
         return mean_depth
         
 
